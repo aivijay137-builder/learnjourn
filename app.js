@@ -18,7 +18,18 @@ function renderEntry(entry) {
   metaEl.className = "entry-meta";
   const minutesLabel =
     entry.minutes === null ? "⚠ invalid duration" : `${entry.minutes} min`;
-  metaEl.textContent = `${minutesLabel} · ${entry.resource}`;
+  metaEl.append(`${minutesLabel} · `);
+
+  if (/^https?:\/\//i.test(entry.resource)) {
+    const link = document.createElement("a");
+    link.href = entry.resource;
+    link.textContent = entry.resource;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    metaEl.append(link);
+  } else {
+    metaEl.append(entry.resource);
+  }
 
   card.append(dateEl, topicEl, metaEl);
   return card;
