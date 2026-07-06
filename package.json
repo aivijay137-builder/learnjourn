@@ -1,0 +1,16 @@
+{
+  "name": "learnjournal",
+  "version": "1.0.0",
+  "description": "A personal CLI to log what you learned each day, how long you actively spent, and where you learned it from.",
+  "bin": {
+    "learnjournal": "src/cli.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
