@@ -1,7 +1,6 @@
 // Replace with your published Google Sheet CSV URL — see README
 // "Mobile Sheet View" section for how to get it.
-const CSV_URL =
-  "data:text/csv,Date%2CTopic%2CResource%2CMinutes%0A2026-01-01%2CTest%20topic%2CTest%20resource%2C15";
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTTWw5b83CYNGeQjIW39F_p20GywuXQAtWgsORItMh2hqZjQQKYfXtXT9CyF_Q-BHsMi6SFPCpTL3M_/pub?output=csv";
 
 function renderEntry(entry) {
   const card = document.createElement("li");
