@@ -52,7 +52,8 @@ async function main() {
   const hours = Math.floor(total / 60);
   const minutes = total % 60;
   const breakdown = hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`;
-  let summary = `Total: ${total} minutes (${breakdown}) across ${entries.length} entries`;
+  const entryWord = entries.length === 1 ? "entry" : "entries";
+  let summary = `Total: ${total} minutes (${breakdown}) across ${entries.length} ${entryWord}`;
   if (skippedCount > 0) {
     summary += ` — ${skippedCount} row(s) skipped (missing required fields)`;
   }

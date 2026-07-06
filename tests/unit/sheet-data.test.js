@@ -32,6 +32,25 @@ test("rowsToEntries skips a row missing a required field and counts it", () => {
   assert.equal(skippedCount, 1);
 });
 
+test("rowsToEntries drops a row with a whitespace-only required field", () => {
+  const { entries, skippedCount } = rowsToEntries([
+    HEADER,
+    ["   ", "X", "Y", "10"],
+  ]);
+  assert.equal(entries.length, 0);
+  assert.equal(skippedCount, 1);
+});
+
+test("rowsToEntries sorts an unparseable date to the end without crashing", () => {
+  const { entries } = rowsToEntries([
+    HEADER,
+    ["not-a-date", "Bad date", "R1", "10"],
+    ["2026-01-01", "Good date", "R2", "15"],
+  ]);
+  assert.equal(entries.length, 2);
+  assert.equal(entries[entries.length - 1].topic, "Bad date");
+});
+
 test("rowsToEntries sorts most-recent-first", () => {
   const { entries } = rowsToEntries([
     HEADER,

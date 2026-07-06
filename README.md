@@ -85,6 +85,9 @@ git commit -m "chore: point mobile view at published Sheet CSV"
 
 ### 4. Push to GitHub and enable Pages
 
+First, create a new empty repository on github.com (no README/license/gitignore
+— this repo already has them). Then:
+
 ```bash
 git remote add origin <your-github-repo-url>
 git branch -M main
